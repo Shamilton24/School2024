@@ -1,0 +1,28 @@
+<!--
+    New Perspectives on XML
+   Tutorial 2
+   Case Problem 4
+
+   South Racing teams list
+   Author: Samantha Hamilton
+   Date:   6/4/24
+
+   Filename:         teams.xml
+   Supporting Files: cars.xml, south.xml
+-->
+
+<teams xmlns:t="http://example.com/southracing/">
+   <team tid="t205" 
+           cars="nes201 gda100-5 gma005-2 sob-450V4 hen01-53">
+      <title>Rodas Motorsports</title>
+      <description>#1 Team in racing</description>
+      <series>Indy</t:series>
+   </team>
+
+   <team tid="t105" 
+           cars="nes201 gda100-5 gma005-2 sob-450V4 dej01-003">
+      <title>SAM Racing</title>
+      <description>Top 10 over last 5 years</description>
+      <series>Nascar</series>
+   </team>
+</teams>
