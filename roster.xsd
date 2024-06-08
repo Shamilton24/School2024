@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+   New Perspectives on XML
+   Tutorial 3
+   Case Problem 3
+
+   The Save Exotic Animals Trust schema
+   Author: Samantha Hamilton
+   Date:   6/8/2024
+
+   Filename:         roster.xsd
+   Supporting Files: rosert.xml
+-->      
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:attribute name="type" type="pType"/>
+    <xs:attribute name="level" type="levelType"/>
+    <xs:element name="name" type="xs:string"/>
+    <xs:element name="address" type="xs:string"/>
+    <xs:element name="email" type="xs:string"/>
+    <xs:element name="donation" type="xs:decimal"/>
+    <xs:element name="effectiveDate" type="xs:date"/>
+    <xs:element name="method" type="methodType"/>
+    <xs:simpleType name="pType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="home"/>
+            <xs:enumeration value="cell"/>
+            <xs:enumeration value="work"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="methodType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Phone"/>
+            <xs:enumeration value="Personal"/>
+            <xs:enumeration value="Mail"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="levelType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="founder"/>
+            <xs:enumeration value="sponsor"/>
+            <xs:enumeration value="patron"/>
+            <xs:enumeration value="friendship"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="phoneType">
+        <xs:restriction base="xs:string">
+            <xs:length value="14"/>
+            <xs:pattern value="\(\d{3}\)\s\d{3}-\d{4}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="roster">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="donor" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="donor">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="name"/>
+                <xs:element ref="address"/>
+                <xs:element ref="phone" minOccurs="1" maxOccurs="unbounded"/>
+                <xs:element ref="email" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element ref="donation"/>
+                <xs:element ref="method"/>
+                <xs:element ref="effectiveDate"/>
+            </xs:sequence>
+            <xs:attribute name="level" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="phone">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="phoneType">
+                    <xs:attribute ref="type" use="required"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
