@@ -1,0 +1,31 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns="http://www.w3.org/2001/XMLSchema-instance"
+    targetNamespace="http://www.w3.org/2001/XMLSchema-instance"
+    elementFormDefault="qualified"
+    attributeFormDefault="unqualified">
+    
+    <xs:include schemaLocation="cars.xsd"/>
+
+    <xs:element name="teams">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="team" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="team">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="title" type="xs:string"/>
+                <xs:element name="description" type="xs:string"/>
+                <xs:element name="series" type="xs:string"/>
+                <xs:element name="cars" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="tid" type="xs:ID" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+  
+  
+</xs:schema>

@@ -1,0 +1,25 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:crs="http://www.w3.org/2001/XMLSchema-instance"
+        targetNamespace="http://www.w3.org/2001/XMLSchema-instance"
+        elementFormDefault="qualified"
+        attributeFormDefault="unqualified">
+        
+    <element name="cars">
+        <complexType>
+            <sequence>
+                <element name="car" minOccurs="1" maxOccurs="unbounded"></element>
+            </sequence>
+            <attribute name="cid" type="ID" use="required"/>
+        </complexType>
+    </element>
+
+    <element name="car">
+        <complexType>
+            <sequence>
+                <element type="string" name="title"/>
+                <element type="string" name="model" />
+                <element type="string" name="driver" />
+            </sequence>
+        </complexType>
+    </element>
+</schema>
