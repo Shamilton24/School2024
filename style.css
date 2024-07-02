@@ -1,0 +1,26 @@
+section table {
+    width: 600px;
+    border: solid black 2px;
+    margin: 20px 0 20px 0;
+}
+
+section table thead tr {
+    padding: 10px;
+    width: 100%;
+    border: solid 1px black;
+}
+
+/* .order-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 2px black solid;
+} */
+
+.cinfo {
+    background-color: aquamarine;
+}
+
+.item-header {
+    padding: 10px 0 10px 0;
+}
